@@ -8,12 +8,19 @@ class Program
 {
     public static void Main()
     {
-        Noise Noise = new Noise();
+        Noise _noise = new Noise();
 
-        for (int i = 0; i < 100; i++)
+        float x = _noise.noise(10);
+        Console.WriteLine(x);
+
+        float y = _noise.noise(0.5f, 0.8f);
+        Console.WriteLine(y);
+
+        // returns a float value between 0 and 1, but different and related to the previous return value on each loop cycle
+        for (float i = 0; i < 10; i += 0.01f)
         {
-            float x = Noise.noise(i);
-            Console.WriteLine(x);
+            float z = _noise.noise(i); 
+            Console.WriteLine(z);
         }
     }
 }
