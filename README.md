@@ -1,5 +1,5 @@
 # Perlin-Noise
-Simple Perlin noise in C# derived from Processing/P5JS
+Simple Perlin noise 1D, 2D and 3D in C# derived from Processing/P5JS
 
 ## Usage
 Can be used to return 1D, 2D or 3D Perlin noise Value.
