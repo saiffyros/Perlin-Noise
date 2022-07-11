@@ -1,10 +1,9 @@
-﻿//adapted from https://github.com/processing/processing-android/blob/master/core/src/processing/core/PApplet.java#L3763
+﻿//Adapted from https://github.com/processing/processing-android/blob/master/core/src/processing/core/PApplet.java#L3763
 // by Rodrigo Oliveira
 // twitter @poa_oliveira
 
 public class Noise
 {
-
     // precalculate sin/cos lookup tables [toxi]
     // circle resolution is determined from the actual used radii
     // passed to ellipse() method. this will automatically take any
@@ -14,21 +13,18 @@ public class Noise
     // changed table's precision to 0.5 degree steps
     // introduced new vars for more flexible code
 
-    static float SINCOS_PRECISION = 0.5f;
-    static int SINCOS_LENGTH = (int)(360f / SINCOS_PRECISION);
-    static float[] sinLUT = new float[SINCOS_LENGTH];
-    static float[] cosLUT = new float[SINCOS_LENGTH];
-
-    static float DEG_TO_RAD = (float)Math.PI / 180.0f;
-
-    static int PERLIN_YWRAPB = 4;
-    static int PERLIN_YWRAP = 1 << PERLIN_YWRAPB;
-    static int PERLIN_ZWRAPB = 8;
-    static int PERLIN_ZWRAP = 1 << PERLIN_ZWRAPB;
-    static int PERLIN_SIZE = 4095;
-
-    int perlin_octaves = 4; // default to medium smooth
-    float perlin_amp_falloff = 0.5f; // 50% reduction/octave
+    private float SINCOS_PRECISION;
+    private int SINCOS_LENGTH;
+    private float[] sinLUT;
+    private float[] cosLUT;
+    private float DEG_TO_RAD;
+    private int PERLIN_YWRAPB;
+    private int PERLIN_YWRAP;
+    private int PERLIN_ZWRAPB;
+    private int PERLIN_ZWRAP;
+    private int PERLIN_SIZE;
+    int perlin_octaves;
+    float perlin_amp_falloff;
 
     // [toxi 031112]
     // new vars needed due to recent change of cos table in PGraphics
@@ -41,6 +37,22 @@ public class Noise
 
     public Noise()
     {
+        SINCOS_PRECISION = 0.5f;
+        SINCOS_LENGTH = (int)(360f / SINCOS_PRECISION);
+        sinLUT = new float[SINCOS_LENGTH];
+        cosLUT = new float[SINCOS_LENGTH];
+
+        DEG_TO_RAD = (float)Math.PI / 180.0f;
+
+        PERLIN_YWRAPB = 4;
+        PERLIN_YWRAP = 1 << PERLIN_YWRAPB;
+        PERLIN_ZWRAPB = 8;
+        PERLIN_ZWRAP = 1 << PERLIN_ZWRAPB;
+        PERLIN_SIZE = 4095;
+
+        perlin_octaves = 4; // default to medium smooth
+        perlin_amp_falloff = 0.5f; // 50% reduction/octave
+
         for (int i = 0; i < SINCOS_LENGTH; i++)
         {
             sinLUT[i] = (float)Math.Sin(i * DEG_TO_RAD * SINCOS_PRECISION);
