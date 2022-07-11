@@ -17,7 +17,7 @@ class Program
         Console.WriteLine(y);
 
         // returns a float value between 0 and 1, but different and related to the previous return value on each loop cycle
-        for (float i = 0; i < 10; i += 0.01f)
+        for (float i = 0; i < 100; i += 0.01f)
         {
             float z = _noise.noise(i); 
             Console.WriteLine(z);

@@ -139,7 +139,7 @@ public class Noise
             for (int i = 0; i < PERLIN_SIZE + 1; i++)
             {
                 //perlin[i] = perlinRandom.nextFloat(); //(float)Math.random();
-                perlin[i] = (float)perlinRandom.Next();
+                perlin[i] = (float)perlinRandom.NextDouble();
             }
             // [toxi 031112]
             // noise broke due to recent change of cos table in PGraphics
@@ -205,7 +205,7 @@ public class Noise
     private float noise_fsc(float i)
     {
         // using bagel's cosine table instead
-        return 0.5f * (1.0f - perlin_cosTable[((int)i * perlin_PI) % perlin_TWOPI]);
+        return 0.5f * (1.0f - perlin_cosTable[(int)(i * perlin_PI) % perlin_TWOPI]);
     }
 
     // [toxi 040903]
