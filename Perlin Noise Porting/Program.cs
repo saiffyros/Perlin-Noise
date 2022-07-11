@@ -10,10 +10,10 @@ class Program
     {
         Noise _noise = new Noise();
 
-        float x = _noise.noise(10);
-        Console.WriteLine(x);
+        float x = _noise.noise(-2146233080);
+        Console.WriteLine("Check: " + x);
 
-        float y = _noise.noise(0.5f, 0.8f);
+        float y = _noise.noise(0.000005f, 0.000008f);
         Console.WriteLine(y);
 
         // returns a float value between 0 and 1, but different and related to the previous return value on each loop cycle

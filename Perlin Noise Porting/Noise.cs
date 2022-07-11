@@ -205,7 +205,7 @@ public class Noise
     private float noise_fsc(float i)
     {
         // using bagel's cosine table instead
-        return 0.5f * (1.0f - perlin_cosTable[(int)(i * perlin_PI) % perlin_TWOPI]);
+        return 0.5f * (1.0f - perlin_cosTable[((int)i * perlin_PI) % perlin_TWOPI]);
     }
 
     // [toxi 040903]
